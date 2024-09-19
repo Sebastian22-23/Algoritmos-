@@ -65,7 +65,7 @@ private:
     CARRO* objcarro;
     persona1* objp;
     Basura* objbasura;
-    int n=1;
+    int n = 1;
     int na = 1;
     juego2* objJuego2;
 public:
@@ -84,15 +84,15 @@ public:
     }
 
     bool choque_persona() {
-        if (objbasura->X() >= objp->X() && objbasura->X() < objp->X() + 6 &&
-            objbasura->Y() >= objp->Y() && objbasura->Y() < objp->Y() + 1) {
+        if (objbasura->getX() >= objp->X() && objbasura->getX() < objp->X() + 6 &&
+            objbasura->getY() >= objp->Y() && objbasura->getY() < objp->Y() + 1) {
             return true;
         }
         return false;
     }
 
     bool choque_rio() {
-        if (objbasura->Y() == 30) {
+        if (objbasura->getY() == 30) {
             return true;
         }
         return false;
@@ -115,17 +115,16 @@ public:
     bool perdiste() {
         if (objp->get_vidas() == 0) {
             Console::Clear();
-            tres();  // Mostrar algún mensaje o pantalla de "perdiste"
-            if (_getch()) {  // Esperar a que el usuario presione una tecla
+            lose();
+            if (_getch()) {
                 objp->set_vidas(8);
                 n = 1;
                 na = 1;
                 Console::Clear();
-                movimiento();  // Volver a ejecutar el ciclo de movimiento
+                movimiento();
             }
             return true;
         }
-
         return false;
     }
     void movimiento() {
@@ -152,7 +151,7 @@ public:
                 objbasura->setX(rand() % 80 + 25);
                 objbasura->setY(12);
             }
-            
+
             if (choque_rio()) {
                 objp->set_vidas(objp->get_vidas() - 1);
                 objp->actualizar_vidas();
