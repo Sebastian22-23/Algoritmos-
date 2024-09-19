@@ -22,10 +22,10 @@ public:
 	}
     void generar() {
         while (contador < 10) {
-            int x = rand() % 98 + 5; // Genera una posición x
-            int y = rand() % 24 + 5; // Genera una posición y
+            int x = rand() % 98 + 5; // Genera una posiciÃ³n x
+            int y = rand() % 24 + 5; // Genera una posiciÃ³n y
 
-            // Verifica si la posición ya ha sido utilizada
+            // Verifica si la posiciÃ³n ya ha sido utilizada
             bool ocupada = false;
             for (int i = 0; i < contador; ++i) {
                 if (posx[i] == x && posy[i] == y) {
@@ -34,7 +34,7 @@ public:
                 }
             }
 
-            // Si la posición no está ocupada, la añade y dibuja
+            // Si la posiciÃ³n no estÃ¡ ocupada, la aÃ±ade y dibuja
             if (!ocupada) {
                 posx[contador] = x;
                 posy[contador] = y;
@@ -46,3 +46,4 @@ public:
     //int X() { return x; }
     //int Y() { return y; }
 };
+
