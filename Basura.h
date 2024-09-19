@@ -32,8 +32,8 @@ public:
 	}
 	void setY(int y) { this->y = y; }
 	void setX(int x) { this->x = x; }
-	int X() { return x; }
-	int Y() { return y; }
+	int getX() { return x; }
+	int getY() { return y; }
 };
 class semilla_buena : public Basura {
 private:
@@ -65,8 +65,8 @@ public:
 	void dibujarsb() {
 		Console::SetCursorPosition(x, y); cout << char(59);
 	}
-	int X() { return x; }
-	int Y() { return y; }
+	int getX() { return x; }
+	int getY() { return y; }
 };
 class semilla_mala : public Basura {
 private:
@@ -98,6 +98,6 @@ public:
 	void dibujarsm() {
 		Console::SetCursorPosition(x, y); cout << char(45);
 	}
-	int X() { return x; }
-	int Y() { return y; }
+	int getX() { return x; }
+	int getY() { return y; }
 };
