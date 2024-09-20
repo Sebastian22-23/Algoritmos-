@@ -87,7 +87,9 @@ class juego3 {
 private:
     persona1* objp2;
     macetero* objmacetero;
-    int segundos=30;
+    int segundos=300;
+    int contagua = 10;
+    int contsemillas = 10;
 public:
     juego3() {
         objp2 = new persona1(55, 15, 6);
@@ -107,7 +109,21 @@ public:
     }
     void temporizador() {
             gotoxy(1, 1, "TIEMPO: "); cout << segundos;
+            gotoxy(11, 1, " ");
             segundos--;
+    }
+    void semillas(){
+        gotoxy(20, 1, "SEMILLAS: "); cout << contsemillas;
+    }
+    void agua(){
+        gotoxy(40, 1, "AGUA: "); cout << contagua;
+    }
+    bool colision() {
+        if (objmacetero->getX() >= objp2->X() && objmacetero->getY() < objp2->Y() + 5 &&
+            objmacetero->getY() >= objp2->Y() && objmacetero->getY() < objp2->Y() + 3) {
+            return true;
+        }
+        return false;
     }
     void movimiento3() {
         mapa3();
@@ -117,8 +133,14 @@ public:
             objp2->borrar();
             objp2->mover3();
             objp2->dibujar2();
-            perdiste();
             objmacetero->generar();
+            semillas();
+            agua();
+            if (colision()) {
+                contsemillas - 1;
+                contagua - 1;
+            }
+            perdiste();
             sleep_for(milliseconds(100));
         }
 
