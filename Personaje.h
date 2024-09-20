@@ -72,11 +72,6 @@ public:
 		Console::SetCursorPosition(px, py + 1); cout << " /|\\";
 		Console::SetCursorPosition(px, py + 2); cout << " / \\";
 	}
-	void dibujar3() {
-		Console::SetCursorPosition(px, py);     cout << "  O";
-		Console::SetCursorPosition(px, py + 1); cout << " /|\\";
-		Console::SetCursorPosition(px, py + 2); cout << " / \\";
-	}
 	void mover3() {
 		if (_kbhit()) {
 			char tecla = _getch();
@@ -124,10 +119,10 @@ public:
 	void set_vidas(int x) {
 		this->vidas = x;
 	}
-	int X() {
+	int getX() {
 		return px;
 	}
-	int Y() {
+	int getY() {
 		return py;
 	}
 
