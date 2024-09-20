@@ -119,11 +119,11 @@ public:
         gotoxy(40, 1, "AGUA: "); cout << contagua;
     }
     bool colision() {
-        if (objmacetero->getX() >= objp2->X() && objmacetero->getY() < objp2->Y() + 5 &&
-            objmacetero->getY() >= objp2->Y() && objmacetero->getY() < objp2->Y() + 3) {
-            return true;
+        if (objmacetero->getX() >= objp2->getX() && objmacetero->getY() < objp2->getY() + 5 &&
+            objmacetero->getY() >= objp2->getY() && objmacetero->getY() < objp2->getY() + 3) {
+            return false;
         }
-        return false;
+        return true;
     }
     void movimiento3() {
         mapa3();
